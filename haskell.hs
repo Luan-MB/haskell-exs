@@ -51,3 +51,21 @@ fatorial_duplo n
 super_fatorial :: Integer -> Integer
 super_fatorial 1 = 1
 super_fatorial n = calcula_fatorial n 1 * super_fatorial (n-1)
+
+-- Exercicio 15
+
+converte_bin :: Integer -> Integer
+converte_bin 0 = 0
+converte_bin n = converte_bin (div n 2) * 10 + mod n 2
+
+-- Exercicio 16
+
+soma_sucessiva :: Integer -> Integer -> Integer
+soma_sucessiva n 0 = n
+soma_sucessiva n m = soma_sucessiva (n+1) (m-1)
+
+-- Exercicio 17
+
+calcula_digitos :: Integer -> Integer
+calcula_digitos 0 = 0
+calcula_digitos n = calcula_digitos (div n 10) + mod n 10
