@@ -32,6 +32,34 @@ multip_rec :: Integer -> Integer -> Integer
 multip_rec x 1 = x
 multip_rec x y = multip_rec x (y-1) + x
 
+-- Exercicio 7
+
+print_crescente :: Integer -> String
+print_crescente 0 = "0"
+print_crescente n = print_crescente (n-1) ++ " " ++ show n
+
+-- Exercicio 8
+
+print_decrescente :: Integer -> String
+print_decrescente 0 = "0"
+print_decrescente n = show n ++ " " ++ print_decrescente(n-1)
+
+-- Exercicio 9
+
+print_par_cresc :: Integer -> String
+print_par_cresc 0 = "0"
+print_par_cresc n
+    | mod n 2 == 1 = show "nao eh par"
+    | otherwise = print_par_cresc(n-2) ++ " " ++ show n
+
+-- Exercicio 10
+
+print_par_decresc :: Integer -> String
+print_par_decresc 0 = "0"
+print_par_decresc n
+    | mod n 2 == 1 = show "nao eh par"
+    | otherwise = show n ++ " " ++ print_par_decresc(n-2)
+
 -- Exercicio 11
 
 eh_impar :: Integer -> Integer
