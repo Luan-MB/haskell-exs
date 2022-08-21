@@ -92,6 +92,15 @@ super_fatorial :: Integer -> Integer
 super_fatorial 1 = 1
 super_fatorial n = calcula_fatorial n 1 * super_fatorial (n-1)
 
+-- Exercicio 13
+
+menor_vetor :: [Integer] -> Integer
+menor_vetor [] = 0
+menor_vetor [a] = a
+menor_vetor (a:x)
+    | a < menor_vetor x = a
+    | otherwise = menor_vetor x
+
 -- Exercicio 14
 
 imprime_serie :: Integer -> Integer -> Integer -> String
@@ -99,7 +108,6 @@ imprime_serie _ _ 0 = "Incremento invalido"
 imprime_serie a b i
     | (b < a && i > 0) || (a < b && i < 0) = ""
     | otherwise = show a ++ " " ++ imprime_serie (a+i) b i
-
 
 -- Exercicio 15
 
