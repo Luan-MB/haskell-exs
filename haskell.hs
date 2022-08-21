@@ -8,11 +8,23 @@ inverte_num x
     | x < 10 = x
     | otherwise = mod x 10 * 10 ^ num_digit x + inverte_num (div x 10) 
 
+-- Exercicio 2
+
+soma_vetor :: [Integer] -> Integer
+soma_vetor [] = 0
+soma_vetor (a:x) = a + soma_vetor x
+
 -- Exercicio 3
 
 somatorio_n :: Integer -> Integer
 somatorio_n 1 = 1
 somatorio_n n = somatorio_n (n-1) + n
+
+-- Exercicio 4
+
+inverte_vetor :: [Integer] -> [Integer]
+inverte_vetor [] = []
+inverte_vetor (a:x) = inverte_vetor x ++ [a]
 
 -- Exercicio 5
 
@@ -79,6 +91,15 @@ fatorial_duplo n
 super_fatorial :: Integer -> Integer
 super_fatorial 1 = 1
 super_fatorial n = calcula_fatorial n 1 * super_fatorial (n-1)
+
+-- Exercicio 14
+
+imprime_serie :: Integer -> Integer -> Integer -> String
+imprime_serie _ _ 0 = "Incremento invalido"
+imprime_serie a b i
+    | (b < a && i > 0) || (a < b && i < 0) = ""
+    | otherwise = show a ++ " " ++ imprime_serie (a+i) b i
+
 
 -- Exercicio 15
 
