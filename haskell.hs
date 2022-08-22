@@ -1,3 +1,5 @@
+-- LISTA 1
+
 -- Exercicio 1
 
 num_digit :: Integer -> Int
@@ -105,14 +107,6 @@ menor_vetor (a:x)
 
 imprime_serie :: Integer -> Integer -> Integer -> String
 imprime_serie _ _ 0 = "Incremento invalido"
-imprime_serie a b i
-    | (b < a && i > 0) || (a < b && i < 0) = ""
-    | otherwise = show a ++ " " ++ imprime_serie (a+i) b i
-
--- Exercicio 15
-
-converte_bin :: Integer -> Integer
-converte_bin 0 = 0
 converte_bin n = converte_bin (div n 2) * 10 + mod n 2
 
 -- Exercicio 16
@@ -126,3 +120,38 @@ soma_sucessiva n m = soma_sucessiva (n+1) (m-1)
 calcula_digitos :: Integer -> Integer
 calcula_digitos 0 = 0
 calcula_digitos n = calcula_digitos (div n 10) + mod n 10
+
+-- LISTA 2
+
+-- Exercicio 1
+
+inverte_lista :: [Integer] -> [Integer]
+inverte_lista [] = []
+inverte_lista (a:x) = inverte_lista x ++ [a]
+
+-- Exercicio 2
+
+remove_primeiro :: [Integer] -> [Integer]
+remove_primeiro [] = []
+remove_primeiro (a:x) = x
+
+-- Exercicio 3
+
+remove_ultimo :: [Integer] -> [Integer]
+remove_ultimo [] = []
+remove_ultimo [a] = []
+remove_ultimo (a:x) = [a] ++ remove_ultimo x
+
+-- Exercicio 4
+
+soma_pares_lista :: [Integer] -> Integer
+soma_pares_lista [] = 0
+soma_pares_lista (a:x)
+    | mod a 2 == 0 = a + soma_pares_lista x
+    | otherwise = soma_pares_lista x
+
+-- Exercicio 5
+
+soma_posicao_par :: [Integer] -> Integer
+soma_posicao_par [] = 0
+soma_posicao_par (a:b:x) = b + soma_posicao_par x
