@@ -155,3 +155,18 @@ soma_pares_lista (a:x)
 soma_posicao_par :: [Integer] -> Integer
 soma_posicao_par [] = 0
 soma_posicao_par (a:b:x) = b + soma_posicao_par x
+
+-- Exercicio 6
+
+insere_elemento :: Integer -> [Integer] -> Integer -> [Integer]
+insere_elemento a [] _ = [a]
+insere_elemento a (b:y) 1 = [a] ++ (b:y)
+insere_elemento a (b:y) i = [b] ++ insere_elemento a y (i-1)
+
+-- Exercicio 9
+
+intervalo_lista :: [Integer] -> Integer -> Integer -> [Integer]
+intervalo_lista [] _ _ = []
+intervalo_lista (a:x) 1 j = [a] ++ intervalo_lista x 0 (j-1)
+intervalo_lista (a:x) _ 1 = [a]
+intervalo_lista (a:x) i j = [a] ++ intervalo_lista x (i-1) (j-1)
