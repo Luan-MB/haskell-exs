@@ -170,3 +170,11 @@ intervalo_lista [] _ _ = []
 intervalo_lista (a:x) 1 j = [a] ++ intervalo_lista x 0 (j-1)
 intervalo_lista (a:x) _ 1 = [a]
 intervalo_lista (a:x) i j = [a] ++ intervalo_lista x (i-1) (j-1)
+
+-- Exercicio 11
+
+rotaciona_lista :: [Integer] -> Int -> [Integer]
+rotaciona_lista (a:x) 0 = (a:x)
+rotaciona_lista (a:x) i = rotaciona_lista ([x]++a) (i-1)
+
+
