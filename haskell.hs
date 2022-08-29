@@ -163,18 +163,37 @@ insere_elemento a [] _ = [a]
 insere_elemento a (b:y) 1 = [a] ++ (b:y)
 insere_elemento a (b:y) i = [b] ++ insere_elemento a y (i-1)
 
+-- Exercicio 7
+
+
 -- Exercicio 9
 
-intervalo_lista :: [Integer] -> Integer -> Integer -> [Integer]
+divide_lista :: [Integer] -> Integer -> [Integer]
+divide_lista [] _ = []
+divide_lista (a:x) 1 = [a]
+divide_lista (a:x) i = [a] ++ divide_lista x (i-1)
+
+-- Exercicio 10
+
+meu_drop :: Int -> [Integer] -> [Integer]
+meu_drop _ [] = []
+meu_drop 0 (a:x) = (a:x)
+meu_drop i (a:x) = meu_drop (i-1) x 
+
+meu_take :: Int -> [Integer] -> [Integer]
+meu_take _ [] = []
+meu_take 0 (a:x) = []
+meu_take j (a:x) = [a] ++ meu_take (j-1) x
+
+intervalo_lista :: [Integer] -> Int -> Int -> [Integer]
 intervalo_lista [] _ _ = []
-intervalo_lista (a:x) 1 j = [a] ++ intervalo_lista x 0 (j-1)
-intervalo_lista (a:x) _ 1 = [a]
-intervalo_lista (a:x) i j = [a] ++ intervalo_lista x (i-1) (j-1)
+intervalo_lista (a:x) i j = meu_take (j-i+1) (meu_drop (i-1) (a:x))
 
 -- Exercicio 11
 
 rotaciona_lista :: [Integer] -> Int -> [Integer]
+rotaciona_lista [] _ = []
 rotaciona_lista (a:x) 0 = (a:x)
-rotaciona_lista (a:x) i = rotaciona_lista ([x]++a) (i-1)
+rotaciona_lista (a:x) i = rotaciona_lista (x ++ [a]) (i-1)
 
 
