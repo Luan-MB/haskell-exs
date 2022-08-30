@@ -165,7 +165,6 @@ insere_elemento a (b:y) i = [b] ++ insere_elemento a y (i-1)
 
 -- Exercicio 7
 
-
 -- Exercicio 9
 
 divide_lista :: [Integer] -> Integer -> [Integer]
@@ -195,5 +194,12 @@ rotaciona_lista :: [Integer] -> Int -> [Integer]
 rotaciona_lista [] _ = []
 rotaciona_lista (a:x) 0 = (a:x)
 rotaciona_lista (a:x) i = rotaciona_lista (x ++ [a]) (i-1)
+
+-- Exercicio 12
+
+gera_intervalo :: Integer -> Integer -> [Integer]
+gera_intervalo x y 
+    | x == y = [y]
+    | otherwise = [x] ++ gera_intervalo (x+1) y 
 
 
