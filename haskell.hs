@@ -2,13 +2,14 @@
 
 -- Exercicio 1
 
-num_digit :: Integer -> Int
-num_digit x = floor ( logBase 10 (fromIntegral x))
-
 inverte_num :: Integer -> Integer
 inverte_num x 
     | x < 10 = x
-    | otherwise = mod x 10 * 10 ^ num_digit x + inverte_num (div x 10) 
+    | otherwise = mx * 10 ^ num_digit + inverte_num nx
+    where 
+        nx = div x 10
+        mx = mod x 10
+        num_digit = floor( logBase 10 (fromIntegral x))
 
 -- Exercicio 2
 
@@ -201,5 +202,23 @@ gera_intervalo :: Integer -> Integer -> [Integer]
 gera_intervalo x y 
     | x == y = [y]
     | otherwise = [x] ++ gera_intervalo (x+1) y 
+
+-- PROVA
+
+-- Questão 2
+
+fatorial_d :: Integer -> Integer
+fatorial_d 1 = 1
+fatorial_d x = x * fatorial_d (x-2)
+
+-- Questão 3
+
+dec_to_bin :: Integer -> Integer
+dec_to_bin 0 = 0
+dec_to_bin 1 = 1
+dec_to_bin x = dec_to_bin nx * 10 + mx
+    where 
+        mx = mod x 2
+        nx = div x 2
 
 
